@@ -17,7 +17,30 @@ class Signature extends Model
         'status',
     ];
 
-    protected $casts = [
-        'status' => SignatureStatus::class,
-    ];
+    protected function casts(): array
+    {
+        return [
+            'status' => SignatureStatus::class,
+        ];
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function signatureHistories()
+    {
+        return $this->hasMany(SignatureHistory::class);
+    }
 }

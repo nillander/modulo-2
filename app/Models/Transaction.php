@@ -17,7 +17,15 @@ class Transaction extends Model
         'status',
     ];
 
-    protected $casts = [
-        'status' => TransactionStatus::class,
-    ];
+    protected function casts(): array
+    {
+        return [
+            'status' => TransactionStatus::class,
+        ];
+    }
+
+    public function signature()
+    {
+        return $this->belongsTo(Signature::class);
+    }
 }

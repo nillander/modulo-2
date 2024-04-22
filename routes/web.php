@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/test', function () {
     return view('test', ['comida' => 'subway']);
-// })->middleware('auth')->name('test');
-})->name('test');
+})->middleware('auth')->name('test');
+// })->name('test');
 
 require __DIR__.'/auth.php';
